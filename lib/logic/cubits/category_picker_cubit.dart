@@ -4,7 +4,7 @@ import'category_picker_state.dart';
 class CategoryPickerCubit extends Cubit<CategoryPickerState> {
   CategoryPickerCubit() : super(CategoryPickerClosed(isOpen: false, index: 0));
 
-  void openExpansionPanelToCategoryPicker({int newPickerIndex}) {
+  void openExpansionPanelToCategoryPicker({int? newPickerIndex}) {
     if (newPickerIndex == null) {
       newPickerIndex = this.state.index;
     } // if

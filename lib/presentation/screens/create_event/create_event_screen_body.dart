@@ -1,4 +1,4 @@
-import 'file:///C:/Users/18454/AndroidStudioProjects/Marist_Community_Tabs/lib/presentation/screens/create_event/image/create_event_image.dart';
+import 'package:communitytabs/presentation/screens/create_event/image/create_event_image.dart';
 import 'package:communitytabs/constants/marist_color_scheme.dart';
 import 'package:communitytabs/logic/cubits/create_event_page_view_cubit.dart';
 import 'form/form.dart';

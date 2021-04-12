@@ -16,7 +16,7 @@ abstract class CategoryPickerState extends Equatable {
 } // CategoryPickerState
 
 class CategoryPickerClosed extends CategoryPickerState {
-  CategoryPickerClosed({@required bool isOpen, @required int index})
+  CategoryPickerClosed({required bool isOpen, required int index})
       : super(isOpen, index);
 
   @override
@@ -24,7 +24,7 @@ class CategoryPickerClosed extends CategoryPickerState {
 } // CategoryPickerClosed
 
 class CategoryPickerOpen extends CategoryPickerState {
-  CategoryPickerOpen({@required bool isOpen, @required int index})
+  CategoryPickerOpen({required bool isOpen, required int index})
       : super(isOpen, index);
 
   @override

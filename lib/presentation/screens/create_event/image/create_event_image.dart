@@ -14,8 +14,8 @@ class CreateEventImage extends StatefulWidget {
 }
 
 class _CreateEventImageState extends State<CreateEventImage> {
-  File pickedImage;
-  ImagePicker picker;
+  late File? pickedImage;
+  late ImagePicker picker;
 
   @override
   void initState() {
@@ -101,7 +101,7 @@ class _CreateEventImageState extends State<CreateEventImage> {
                   }// if
                 }// if
               } // if
-              return;
+              return true;
             },
             child: Builder(builder: (context) {
               final deviceImagesBlocState =

@@ -18,7 +18,7 @@ class CreateEventPageViewCubit extends Cubit<CreateEventPageViewState> {
     emit(CreateEventPageViewEventPhoto());
   } // animateToNextPage
 
-  double currentPage () {
+  double? currentPage () {
     return _createEventPageViewController.page;
   }// currentPage
 

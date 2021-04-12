@@ -13,10 +13,10 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _loginFormKeyEmail = new GlobalKey<FormState>();
   final GlobalKey<FormState> _loginFormKeyPassword = new GlobalKey<FormState>();
-  FocusNode emailFocusNode;
-  FocusNode passwordFocusNode;
-  TextEditingController emailTextEditingController;
-  TextEditingController passwordTextEditingController;
+  late FocusNode emailFocusNode;
+  late FocusNode passwordFocusNode;
+  late TextEditingController emailTextEditingController;
+  late TextEditingController passwordTextEditingController;
 
   @override
   void initState() {
@@ -24,14 +24,14 @@ class _LoginFormState extends State<LoginForm> {
     emailFocusNode = new FocusNode();
     emailFocusNode.addListener(() {
       if (!emailFocusNode.hasFocus) {
-        _loginFormKeyEmail.currentState.validate();
+        _loginFormKeyEmail.currentState!.validate();
       } // if
     });
 
     passwordFocusNode = new FocusNode();
     passwordFocusNode.addListener(() {
       if (!passwordFocusNode.hasFocus) {
-        _loginFormKeyPassword.currentState.validate();
+        _loginFormKeyPassword.currentState!.validate();
       } // if
     });
 
@@ -64,9 +64,9 @@ class _LoginFormState extends State<LoginForm> {
                   textInputAction: TextInputAction.done,
                   decoration:
                       customTextField.copyWith(labelText: 'Marist Email'),
-                  validator: (String email) {
+                  validator: (String? email) {
                     // Missing password
-                    if (email.isEmpty || email.contains(' ')) {
+                    if (email!.isEmpty || email!.contains(' ')) {
                       return '\u26A0 Enter a MARIST email.';
                     } // if
 
@@ -107,13 +107,13 @@ class _LoginFormState extends State<LoginForm> {
                             },
                           ),
                         ),
-                        validator: (String password) {
+                        validator: (String? password) {
                           // Missing password
-                          if (password.isEmpty) {
+                          if (password!.isEmpty) {
                             return '\u26A0 Enter a password.';
                           } // if
                           // No Spaces
-                          if (password.contains(' ')) {
+                          if (password!.contains(' ')) {
                             return '\u26A0 Password cannot contain spaces.';
                           } // if
                           return null;
@@ -180,8 +180,8 @@ class _LoginFormState extends State<LoginForm> {
                       side: BorderSide(color: kHavenLightGray),
                     ),
                     onPressed: () async {
-                      if (_loginFormKeyEmail.currentState.validate() &&
-                          _loginFormKeyPassword.currentState.validate()) {
+                      if (_loginFormKeyEmail.currentState!.validate() &&
+                          _loginFormKeyPassword.currentState!.validate()) {
                         BlocProvider.of<LoginBloc>(context).add(LoginEventLogin(
                           loginType: LoginType.emailAndPassword,
                           hashedEmail: emailTextEditingController.text,

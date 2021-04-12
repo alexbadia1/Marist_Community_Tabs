@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class MaristSliverAppBarTitle extends StatelessWidget {
   final String title;
-  const MaristSliverAppBarTitle({@required this.title});
+  const MaristSliverAppBarTitle({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class MaristSliverAppBarTitle extends StatelessWidget {
 
 class MaristSliverAppBar extends StatelessWidget {
   final String title;
-  Image _backgroundImage;
+  late Image _backgroundImage;
 
-  MaristSliverAppBar({@required this.title}) {
+  MaristSliverAppBar({required this.title}) {
     _backgroundImage = new Image.asset(
       "images/tenney.jpg",
       fit: BoxFit.fill,

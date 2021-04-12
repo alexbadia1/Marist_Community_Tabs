@@ -17,8 +17,8 @@ typedef RetrieveCategoryFromBlocCallback = String Function(
 /// Returns true if the two DateTimes are not equal,
 /// since that means the DateTime changed between the two CreateEventBloc states.
 bool _didDateChanged({
-  @required DateTime previousDateTime,
-  @required DateTime nextDateTime,
+  required DateTime previousDateTime,
+  required DateTime nextDateTime,
 }) {
   // Null check, do not rebuild widget if both DateTimes are null.
   //
@@ -49,8 +49,8 @@ bool _didDateChanged({
 /// Returns true if the two Categories are not equal,
 /// since that means the DateTime changed between the two CreateEventBloc states.
 bool _didCategoryChanged({
-  @required String previousCategory,
-  @required String nextCategory,
+  required String previousCategory,
+  required String nextCategory,
 }) {
   // Null check, do not rebuild widget if both DateTimes are null.
   //
@@ -93,10 +93,10 @@ class ExpansionPanelDateTimeTitle extends StatelessWidget {
   final RetrieveDateTimeFromBlocCallback retrieveDateTimeFromBlocCallback;
 
   const ExpansionPanelDateTimeTitle(
-      {Key key,
-      @required this.title,
-      @required this.hintText,
-      @required this.retrieveDateTimeFromBlocCallback})
+      {Key? key,
+      required this.title,
+      required this.hintText,
+      required this.retrieveDateTimeFromBlocCallback})
       : super(key: key);
 
   @override
@@ -134,7 +134,7 @@ class ExpansionPanelDateLabel extends StatelessWidget {
   final RetrieveDateTimeFromBlocCallback retrieveDateTimeFromBlocCallback;
 
   const ExpansionPanelDateLabel(
-      {Key key, @required this.retrieveDateTimeFromBlocCallback})
+      {Key? key, required this.retrieveDateTimeFromBlocCallback})
       : super(key: key);
 
   @override
@@ -170,7 +170,7 @@ class ExpansionPanelTimeLabel extends StatelessWidget {
   final RetrieveDateTimeFromBlocCallback retrieveDateTimeFromBlocCallback;
 
   const ExpansionPanelTimeLabel(
-      {Key key, this.retrieveDateTimeFromBlocCallback})
+      {Key? key, required this.retrieveDateTimeFromBlocCallback})
       : super(key: key);
 
   @override
@@ -215,10 +215,10 @@ class ExpansionPanelCategoryTitle extends StatelessWidget {
   final RetrieveCategoryFromBlocCallback retrieveCategoryFromBlocCallback;
 
   const ExpansionPanelCategoryTitle(
-      {Key key,
-      @required this.title,
-      @required this.hintText,
-      @required this.retrieveCategoryFromBlocCallback})
+      {Key? key,
+      required this.title,
+      required this.hintText,
+      required this.retrieveCategoryFromBlocCallback})
       : super(key: key);
 
   @override
@@ -257,7 +257,7 @@ class ExpansionPanelCategoryLabel extends StatelessWidget {
   final RetrieveCategoryFromBlocCallback retrieveCategoryFromBlocCallback;
 
   const ExpansionPanelCategoryLabel(
-      {Key key, @required this.retrieveCategoryFromBlocCallback})
+      {Key? key, required this.retrieveCategoryFromBlocCallback})
       : super(key: key);
 
   @override

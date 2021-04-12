@@ -12,7 +12,7 @@ class ExpansionPanelCancelButton extends StatelessWidget {
 
   /// A void callback that triggers from the Flutter defined Button onPressed() property.
   final OnPressedCallback onPressedCallback;
-  const ExpansionPanelCancelButton({Key key, @required this.onPressedCallback}) : super(key: key);
+  const ExpansionPanelCancelButton({required this.onPressedCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,6 @@ class ExpansionPanelCancelButton extends StatelessWidget {
 }// ExpansionPanelCancelButton
 
 class ExpansionPanelBackButton extends StatelessWidget {
-  /// A void callback that triggers from the Flutter defined Button onPressed() property.
-  final OnPressedCallback onPressedCallback;
-  const ExpansionPanelBackButton({Key key, this.onPressedCallback}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return FlatButton(
@@ -41,10 +37,6 @@ class ExpansionPanelBackButton extends StatelessWidget {
 
 
 class ExpansionPanelContinueButton extends StatelessWidget {
-  /// A void callback that triggers from the Flutter defined Button onPressed() property.
-  final OnPressedCallback onPressedCallback;
-  const ExpansionPanelContinueButton({Key key, this.onPressedCallback}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return FlatButton(
@@ -62,7 +54,7 @@ class ExpansionPanelConfirmButton extends StatelessWidget {
   ///
   /// The argument passed back during the callback is the current temporary DateTime stored in the ExpansionPanelCubit.
   final OnPressedCallback onPressedCallback;
-  const ExpansionPanelConfirmButton({Key key, @required this.onPressedCallback}) : super(key: key);
+  const ExpansionPanelConfirmButton({required this.onPressedCallback});
   @override
   Widget build(BuildContext context) {
     return FlatButton(

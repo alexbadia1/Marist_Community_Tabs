@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'event_subtitle.dart';
 
 class HighlightsList extends StatelessWidget {
-  final IconData icon;
-  final List<String> highlights;
+  final IconData? icon;
+  final List<String>? highlights;
 
   const HighlightsList({this.icon, this.highlights});
 
@@ -18,7 +18,7 @@ class HighlightsList extends StatelessWidget {
           child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: highlights.length,
+              itemCount: highlights!.length,
               itemBuilder: (context, index) {
                 return Column(
                   children: <Widget>[
@@ -26,7 +26,7 @@ class HighlightsList extends StatelessWidget {
                       padding: const EdgeInsets.all(4.0),
                       child: Subtitle(
                           icon: Icons.add,
-                          text: highlights[index]),
+                          text: highlights![index]),
                     ),
                   ],
                 );

@@ -23,7 +23,7 @@ class _UploadImageState extends State<UploadImage> {
   // }
   @override
   Widget build(BuildContext context) {
-
+    return Container();
     // if(_uploadTask != null) {
     //   return StreamBuilder<StorageTaskEvent>(
     //     stream: _uploadTask.events,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MaristAppAuthentication extends StatefulWidget {
   final RouteGeneratorAuthentication routeGeneratorAuthentication;
 
-  MaristAppAuthentication({@required this.routeGeneratorAuthentication, Key key}) : super(key: key);
+  MaristAppAuthentication({required this.routeGeneratorAuthentication});
   @override
   _MaristAppAuthenticationState createState() => _MaristAppAuthenticationState();
 }

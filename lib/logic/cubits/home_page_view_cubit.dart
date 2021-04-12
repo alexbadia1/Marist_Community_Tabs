@@ -15,7 +15,7 @@ class HomePageViewCubit extends Cubit<HomePageViewState> {
     _homePageViewController.animateToPage(1, duration: const Duration(milliseconds: 150), curve: Curves.easeIn);
   } // animateToNextPage
 
-  double currentPage () {
+  double? currentPage () {
     return _homePageViewController.page;
   }// currentPage
 

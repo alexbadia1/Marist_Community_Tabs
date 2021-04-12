@@ -13,7 +13,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationRepository _authenticationRepository;
-  StreamSubscription _userSubscription;
+  late StreamSubscription _userSubscription;
 
   AuthenticationBloc(AuthenticationRepository authenticationRepository)
       : _authenticationRepository = authenticationRepository,
@@ -50,7 +50,7 @@ class AuthenticationBloc
   } // _mapAuthenticationEventToState
 
   Stream<AuthenticationState> _mapAuthenticationLoggedInToState() async* {
-    yield AuthenticationStateAuthenticated();
+    yield AuthenticationStateAuthenticated(user: new UserModel(email: '', firstName: '', lastName: '', userID: ''));
   } // _mapAuthenticationEventToState
 
   Stream<AuthenticationState> _mapAuthenticationLoggedOutToState() async* {

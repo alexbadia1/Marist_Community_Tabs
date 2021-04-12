@@ -13,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 } // LoginScreen
 
 class _LoginScreenState extends State<LoginScreen> {
-  Image backgroundImage;
+  late Image backgroundImage;
 
   @override
   void initState() {

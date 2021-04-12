@@ -12,12 +12,9 @@ class RouteGenerator {
   final LoginBloc loginBloc;
 
   RouteGenerator(
-      {@required this.authenticationRepository,
-      @required this.authenticationBloc,
-      @required this.loginBloc})
-      : assert(authenticationRepository != null),
-        assert(authenticationBloc != null),
-        assert(loginBloc != null);
+      {required this.authenticationRepository,
+      required this.authenticationBloc,
+      required this.loginBloc});
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -41,7 +38,7 @@ class RouteGenerator {
         );
         break;
       case "/event":
-        final EventScreenArguments args = settings.arguments;
+        final EventScreenArguments args = settings.arguments as EventScreenArguments;
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
               EventScreen(eventId: args.documentId, imageBytes: args.imageBytes),
@@ -93,7 +90,14 @@ class RouteGenerator {
         ));
         break;
       default:
-        return null;
+        return MaterialPageRoute(builder: (_) => Scaffold(
+            appBar: AppBar(
+              title: Text('Error'),
+            ),
+            body: Center(
+              child: Text('ERROR'),
+            )
+        ));
         break;
     } // switch
   } // onGenerateRoute

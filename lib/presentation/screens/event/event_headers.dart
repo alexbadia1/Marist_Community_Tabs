@@ -3,7 +3,7 @@ import 'package:communitytabs/constants/marist_color_scheme.dart';
 
 class HeaderLevelOne extends StatelessWidget {
   final String text;
-  const HeaderLevelOne({this.text});
+  const HeaderLevelOne({required this.text});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,7 +35,7 @@ class HeaderLevelOne extends StatelessWidget {
 
 class HeaderLevelTwo extends StatelessWidget {
   final String text;
-  const HeaderLevelTwo({this.text});
+  const HeaderLevelTwo({required this.text});
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class SelectedImage extends StatefulWidget {
 }
 
 class _SelectedImageState extends State<SelectedImage> {
-  ImagePicker picker;
+  late ImagePicker picker;
 
   @override
   void initState() {
@@ -98,7 +98,7 @@ class _SelectedImageState extends State<SelectedImage> {
                     ),
                   ),
                   onTap: () async {
-                    File croppedFile = await ImageCropper.cropImage(
+                    File croppedFile = (await ImageCropper.cropImage(
                       sourcePath: BlocProvider.of<CreateEventBloc>(context)
                           .state
                           .eventModel
@@ -132,11 +132,11 @@ class _SelectedImageState extends State<SelectedImage> {
                       iosUiSettings: IOSUiSettings(
                         minimumAspectRatio: 1.0,
                       ),
-                    );
+                    ))!;
                     if (croppedFile != null) {
                       BlocProvider.of<CreateEventBloc>(context).add(
                           CreateEventSetImage(
-                              imageBytes: croppedFile?.readAsBytesSync()));
+                              imageBytes: croppedFile.readAsBytesSync()));
                     } // if
                   },
                 ),

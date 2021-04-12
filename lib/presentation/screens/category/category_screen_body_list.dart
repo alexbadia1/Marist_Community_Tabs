@@ -12,14 +12,13 @@ category_screen_body_list.dart
   Each List View is able to be refreshed and lazily retrieve events of a specified category.
  */
 class SingleCategoryView extends StatefulWidget {
-  const SingleCategoryView({Key key}) : super(key: key);
   @override
   _SingleCategoryViewState createState() => _SingleCategoryViewState();
 } // SingleCategoryView
 
 class _SingleCategoryViewState extends State<SingleCategoryView> {
-  Completer _refreshCompleter;
-  ScrollController _listViewController;
+  late Completer _refreshCompleter;
+  late ScrollController _listViewController;
 
   @override
   void initState() {

@@ -3,8 +3,8 @@ import 'package:communitytabs/constants/marist_color_scheme.dart';
 
 class Subtitle extends StatelessWidget {
 
-  final IconData icon;
-  final String text;
+  final IconData? icon;
+  final String? text;
 
   const Subtitle({this.icon, this.text});
 

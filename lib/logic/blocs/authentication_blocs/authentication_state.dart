@@ -9,7 +9,7 @@ abstract class AuthenticationState extends Equatable {
 /// Authenticated
 class AuthenticationStateAuthenticated extends AuthenticationState {
   final UserModel user;
-  AuthenticationStateAuthenticated({this.user});
+  AuthenticationStateAuthenticated({required this.user});
 
   @override
   List<Object> get props => [user];

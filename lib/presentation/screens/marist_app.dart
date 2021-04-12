@@ -10,8 +10,7 @@ import 'package:communitytabs/presentation/routes/navigation_marist_app.dart';
 class MaristApp extends StatelessWidget {
   final RouteGenerator routeGenerator;
 
-  MaristApp({@required this.routeGenerator})
-      : assert(routeGenerator != null);
+  MaristApp({required this.routeGenerator});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +25,12 @@ class MaristApp extends StatelessWidget {
         // ChangeNotifierProvider<PageViewMetaData>(
         //   create: (context) => PageViewMetaData(),
         // ),
-        ChangeNotifierProvider<ExpansionTiles>(
-          create: (context) => ExpansionTiles(),
-        ),
-        ChangeNotifierProvider<SelectedImageModel>(
-          create: (context) => SelectedImageModel(),
-        ),
+        // ChangeNotifierProvider<ExpansionTiles>(
+        //   create: (context) => ExpansionTiles(),
+        // ),
+        // ChangeNotifierProvider<SelectedImageModel>(
+        //   create: (context) => SelectedImageModel(),
+        // ),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: true,

@@ -8,7 +8,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthenticationRepository authenticationRepository;
 
-  LoginBloc({@required this.authenticationRepository})
+  LoginBloc({required this.authenticationRepository})
       : assert(authenticationRepository != null),
         super(LoginStateLoggedOut(msg: ''));
 
@@ -23,7 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } // else-if
   } // mapEventToState
 
-  Stream<LoginState> _mapLoginEventLoginToState({@required LoginEventLogin loginEvent}) async* {
+  Stream<LoginState> _mapLoginEventLoginToState({required LoginEventLogin loginEvent}) async* {
     // Emit state to let user know the form is being processed
     // Probably should show a loading widget or something
     yield LoginStateLoginSubmitted();
@@ -32,7 +32,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     // await Future.delayed(Duration(milliseconds: 3000));
 
     // Choose a sign in method to use...
-    final UserModel user = await _mapLoginTypeToLoginMethod(loginEvent: loginEvent);
+    final UserModel? user = await _mapLoginTypeToLoginMethod(loginEvent: loginEvent);
 
     // Ensure a firebase user was returned
     if (user != null) {
@@ -50,7 +50,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     yield LoginStateLoggedOut(msg: '');
   } // mapLoginEventLogoutToState
 
-  Future<UserModel> _mapLoginTypeToLoginMethod({@required LoginEventLogin loginEvent}) async {
+  Future<UserModel?> _mapLoginTypeToLoginMethod({required LoginEventLogin loginEvent}) async {
 
     /// TODO: Map more login types to login methods from the authentication repository
     if (loginEvent.loginType == LoginType.emailAndPassword) {

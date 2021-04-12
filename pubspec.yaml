@@ -14,7 +14,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -31,11 +31,11 @@ dependencies:
     path: packages/calender_strip_fixed
 
   # Bloc Architecture
-  flutter_bloc: ^6.1.1
-  equatable: ^1.2.5
+  flutter_bloc: ^7.0.0-nullsafety.0
+  equatable: ^2.0.0-nullsafety.0
 
   # Better Stream Control
-  rxdart: ^0.25.0
+  rxdart: ^0.26.0-nullsafety.0
 
   # Encryption
   crypto: ^2.1.5
@@ -49,7 +49,7 @@ dependencies:
   url_launcher: ^5.4.10
 
   # Slowly replacing this with Bloc
-  provider: ^4.0.5+1
+#  provider: ^4.0.5+1
 
   # Camera access
   # image_picker >= 0.7.0 conflicts with firebase

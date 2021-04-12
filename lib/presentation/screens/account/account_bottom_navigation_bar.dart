@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class AccountBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ExpansionTiles _expansionPanels = Provider.of<ExpansionTiles>(context);
+    // ExpansionTiles _expansionPanels = Provider.of<ExpansionTiles>(context);
 
     final SlidingUpPanelState _slidingUpPanelState =
         context.watch<SlidingUpPanelCubit>().state;
@@ -51,12 +51,12 @@ class AccountBottomNavigationBar extends StatelessWidget {
                     BlocProvider.of<SlidingUpPanelCubit>(context).openPanel();
 
                     /// Actually Set the initial time(s) for the Calender Pickers
-                    _expansionPanels.data[0].setHeaderDateValue(currentTime);
-                    _expansionPanels.data[0].setHeaderTimeValue(currentTime);
-                    _expansionPanels.updateExpansionPanels();
+                    // _expansionPanels.data[0].setHeaderDateValue(currentTime);
+                    // _expansionPanels.data[0].setHeaderTimeValue(currentTime);
+                    // _expansionPanels.updateExpansionPanels();
 
                     /// Remember the original Start Date and Time
-                    _expansionPanels.originalStartDateAndTime = currentTime;
+                    // _expansionPanels.originalStartDateAndTime = currentTime;
                   }),
               IconButton(
                 icon: Icon(Icons.person),

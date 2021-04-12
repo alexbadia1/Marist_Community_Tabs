@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class HomeBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ExpansionTiles _expansionPanels = Provider.of<ExpansionTiles>(context);
+    // ExpansionTiles _expansionPanels = Provider.of<ExpansionTiles>(context);
     HomePageViewCubit _homePageViewCubit = BlocProvider.of<HomePageViewCubit>(context);
 
     final SlidingUpPanelState _slidingUpPanelState =
@@ -51,12 +51,12 @@ class HomeBottomNavigationBar extends StatelessWidget {
                     /// Open the panel
                     BlocProvider.of<SlidingUpPanelCubit>(context).openPanel();
 
-                    _expansionPanels.data[0].setHeaderDateValue(currentTime);
-                    _expansionPanels.data[0].setHeaderTimeValue(currentTime);
-                    _expansionPanels.updateExpansionPanels();
+                    // _expansionPanels.data[0].setHeaderDateValue(currentTime);
+                    // _expansionPanels.data[0].setHeaderTimeValue(currentTime);
+                    // _expansionPanels.updateExpansionPanels();
 
                     /// Remember the original Start Date and Time
-                    _expansionPanels.originalStartDateAndTime = currentTime;
+                    // _expansionPanels.originalStartDateAndTime = currentTime;
                   }),
               IconButton(
                   icon: Icon(Icons.person),

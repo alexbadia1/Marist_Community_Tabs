@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:communitytabs/logic/constants/enums.dart';
 
@@ -12,12 +11,9 @@ class SignUpEventSignUp extends SignUpEvent {
   final hashedPassword;
 
   SignUpEventSignUp(
-      {@required this.hashedEmail,
-        @required this.hashedPassword,
-        @required this.signUpType})
-      : assert(hashedEmail != null),
-        assert(hashedPassword != null),
-        assert(signUpType != null);
+      {required this.hashedEmail,
+        required this.hashedPassword,
+        required this.signUpType});
 
   @override
   List<Object> get props => [this.hashedEmail, this.hashedPassword];

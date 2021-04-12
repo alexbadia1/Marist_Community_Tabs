@@ -12,7 +12,7 @@ typedef OnSelectedItemChangedCallback = void Function(int index);
 class CategoryPicker extends StatelessWidget {
   final OnSelectedItemChangedCallback onSelectedItemChangedCallback;
 
-  const CategoryPicker({Key key, @required this.onSelectedItemChangedCallback}) : super(key: key);
+  const CategoryPicker({Key? key, required this.onSelectedItemChangedCallback}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

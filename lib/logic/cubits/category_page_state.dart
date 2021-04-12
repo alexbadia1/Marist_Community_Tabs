@@ -11,7 +11,7 @@ class CategoryPageInitial extends CategoryPageState {
 
 class CategoryPageCategory extends CategoryPageState {
   final String category;
-  CategoryPageCategory({@required this.category});
+  CategoryPageCategory({required this.category});
 
   @override
   List<Object> get props => [category];

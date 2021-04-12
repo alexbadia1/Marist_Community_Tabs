@@ -2,7 +2,7 @@ import 'password_state.dart';
 import 'package:bloc/bloc.dart';
 
 class PasswordCubit extends Cubit<PasswordState> {
-  bool obscurePassword;
+  bool obscurePassword = false;
 
   PasswordCubit() : super(PasswordStateHidden()){
     obscurePassword = PasswordStateHidden().obscurePassword;

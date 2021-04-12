@@ -139,7 +139,7 @@ const InputDecoration cAddEventTextFormFieldDecoration = InputDecoration(
 class BorderTop extends StatelessWidget {
   final Widget child;
 
-  const BorderTop({Key key, @required this.child}) : super(key: key);
+  const BorderTop({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +160,7 @@ class BorderTop extends StatelessWidget {
 class BorderBottom extends StatelessWidget {
   final Widget child;
 
-  const BorderBottom({Key key, @required this.child}) : super(key: key);
+  const BorderBottom({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -180,10 +180,10 @@ class BorderBottom extends StatelessWidget {
 
 class BorderTopBottom extends StatelessWidget {
   final Widget child;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
-  const BorderTopBottom({Key key, @required this.child, this.width, this.height}) : super(key: key);
+  const BorderTopBottom({required this.child, this.width, this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -213,8 +213,8 @@ const Decoration cAddEventBottomBorder =
 
 //Loading Widget
 class LoadingWidget extends StatelessWidget {
-  final double size;
-  final Color color;
+  final double? size;
+  final Color? color;
   LoadingWidget({this.size, this.color});
   @override
   Widget build(BuildContext context) {

@@ -11,14 +11,10 @@ class RouteGeneratorAuthentication {
   final SignUpBloc signUpBloc;
 
   RouteGeneratorAuthentication(
-      {@required this.authenticationRepository,
-      @required this.authenticationBloc,
-      @required this.loginBloc,
-      @required this.signUpBloc})
-      : assert(authenticationRepository != null),
-        assert(authenticationBloc != null),
-        assert(loginBloc != null),
-        assert(signUpBloc != null);
+      {required this.authenticationRepository,
+      required this.authenticationBloc,
+      required this.loginBloc,
+      required this.signUpBloc});
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -74,7 +70,7 @@ class RouteGeneratorAuthentication {
     } // switch
   } // onGenerateRoute
 
-  Future<void> close () {
+  Future<void> close () async {
       signUpBloc.close();
   }// close
 } // RouteGeneratorAuthentication

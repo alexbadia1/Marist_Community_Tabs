@@ -8,14 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EventCard extends StatefulWidget {
   final SearchResultModel newSearchResult;
-  EventCard({@required this.newSearchResult}) : assert(newSearchResult != null);
+  EventCard({required this.newSearchResult});
 
   @override
   _EventCardState createState() => _EventCardState();
 } // ClubBigCard
 
 class _EventCardState extends State<EventCard> with AutomaticKeepAliveClientMixin{
-  Uint8List _imageBytes;
+  Uint8List? _imageBytes;
 
   @override
   Widget build(BuildContext context) {

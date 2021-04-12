@@ -14,25 +14,25 @@ class _SignUpFormState extends State<SignUpForm> {
   final GlobalKey<FormState> _signUpFormKeyEmail = new GlobalKey<FormState>();
   final GlobalKey<FormState> _signUpFormKeyPassword =
       new GlobalKey<FormState>();
-  FocusNode emailFocusNode;
-  FocusNode passwordFocusNode;
-  TextEditingController emailTextEditingController;
-  TextEditingController passwordTextEditingController;
+  FocusNode? emailFocusNode;
+  FocusNode? passwordFocusNode;
+  TextEditingController? emailTextEditingController;
+  TextEditingController? passwordTextEditingController;
 
   @override
   void initState() {
     super.initState();
     emailFocusNode = new FocusNode();
-    emailFocusNode.addListener(() {
-      if (!emailFocusNode.hasFocus) {
-        _signUpFormKeyEmail.currentState.validate();
+    emailFocusNode!.addListener(() {
+      if (!emailFocusNode!.hasFocus) {
+        _signUpFormKeyEmail.currentState!.validate();
       } // if
     });
 
     passwordFocusNode = new FocusNode();
-    passwordFocusNode.addListener(() {
-      if (!passwordFocusNode.hasFocus) {
-        _signUpFormKeyPassword.currentState.validate();
+    passwordFocusNode!.addListener(() {
+      if (!passwordFocusNode!.hasFocus) {
+        _signUpFormKeyPassword.currentState?.validate();
       } // if
     });
 
@@ -65,9 +65,9 @@ class _SignUpFormState extends State<SignUpForm> {
                   textInputAction: TextInputAction.done,
                   decoration:
                       customTextField.copyWith(labelText: 'Marist Email'),
-                  validator: (String email) {
+                  validator: (String? email) {
                     // Missing password
-                    if (email.isEmpty || email.contains(' ')) {
+                    if (email!.isEmpty || email!.contains(' ')) {
                       return '\u26A0 Enter a MARIST email.';
                     } // if
 
@@ -108,13 +108,13 @@ class _SignUpFormState extends State<SignUpForm> {
                             },
                           ),
                         ),
-                        validator: (String password) {
+                        validator: (String? password) {
                           // Missing password
-                          if (password.isEmpty) {
+                          if (password!.isEmpty) {
                             return '\u26A0 Enter a password.';
                           } // if
                           // No Spaces
-                          if (password.contains(' ')) {
+                          if (password!.contains(' ')) {
                             return '\u26A0 Password cannot contain spaces.';
                           } // if
                           return null;
@@ -183,13 +183,13 @@ class _SignUpFormState extends State<SignUpForm> {
                       side: BorderSide(color: kHavenLightGray),
                     ),
                     onPressed: () async {
-                      if (_signUpFormKeyEmail.currentState.validate() &&
-                          _signUpFormKeyPassword.currentState.validate()) {
+                      if (_signUpFormKeyEmail.currentState!.validate() &&
+                          _signUpFormKeyPassword.currentState!.validate()) {
                         BlocProvider.of<SignUpBloc>(context).add(
                           SignUpEventSignUp(
                             signUpType: SignUpType.emailAndPassword,
-                            hashedEmail: emailTextEditingController.text,
-                            hashedPassword: passwordTextEditingController.text,
+                            hashedEmail: emailTextEditingController!.text,
+                            hashedPassword: passwordTextEditingController!.text,
                           ),
                         );
                       } // if
@@ -207,10 +207,10 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   void dispose() {
-    emailFocusNode.dispose();
-    passwordFocusNode.dispose();
-    emailTextEditingController.dispose();
-    passwordTextEditingController.dispose();
+    emailFocusNode!.dispose();
+    passwordFocusNode!.dispose();
+    emailTextEditingController!.dispose();
+    passwordTextEditingController!.dispose();
     super.dispose();
   } // dispose
 

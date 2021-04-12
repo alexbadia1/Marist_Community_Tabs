@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 
@@ -14,17 +13,17 @@ class LoginStateLoginSubmitted extends LoginState {
 class LoginStateLoggedIn extends LoginState {
   final UserModel user;
 
-  LoginStateLoggedIn({@required this.user});
+  LoginStateLoggedIn({required this.user});
 
   @override
   List<Object> get props => [this.user];
 }// LoginLoggedIn
 
 class LoginStateLoggedOut extends LoginState {
-  final String msg;
+  final String? msg;
   LoginStateLoggedOut({this.msg});
 
   @override
-  List<Object> get props => [this.msg];
+  List<Object?> get props => [this.msg];
 }// LoginLoggedOut
 

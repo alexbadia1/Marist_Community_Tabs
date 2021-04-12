@@ -23,10 +23,10 @@ class DeviceImagesStateSuccess extends DeviceImagesState {
   final bool isFetching;
 
   DeviceImagesStateSuccess(
-      {@required this.images,
-        @required this.lastPage,
-        @required this.maxImages,
-        @required this.isFetching});
+      {required this.images,
+        required this.lastPage,
+        required this.maxImages,
+        required this.isFetching});
   @override
   List<Object> get props => [images, maxImages, lastPage, isFetching];
 } // SuggestedEventsStateFailed

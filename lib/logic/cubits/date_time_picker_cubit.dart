@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'date_time_picker_state.dart';
-import 'package:flutter/material.dart';
 
 class DateTimePickerCubit extends Cubit<DateTimePickerState> {
   DateTimePickerCubit()
@@ -10,7 +9,7 @@ class DateTimePickerCubit extends Cubit<DateTimePickerState> {
         ));
 
   void openExpansionPanelToDatePicker({
-    DateTime tempDateTime,
+    DateTime? tempDateTime,
   }) {
     if (tempDateTime == null) {
       tempDateTime = _setDate(currentDateTime: state.tempDateTime, newDate: state.tempDateTime);
@@ -24,7 +23,7 @@ class DateTimePickerCubit extends Cubit<DateTimePickerState> {
   } // open
 
   void openExpansionPanelToTimePicker({
-    DateTime tempDateTime,
+    DateTime? tempDateTime,
   }) {
     if (tempDateTime == null) {
       tempDateTime = _setTime(currentDateTime: state.tempDateTime, newTime: state.tempDateTime);
@@ -46,7 +45,7 @@ class DateTimePickerCubit extends Cubit<DateTimePickerState> {
   } // close
 
   DateTime _setTime(
-      {@required DateTime currentDateTime, @required DateTime newTime}) {
+      {required DateTime currentDateTime, required DateTime newTime}) {
     currentDateTime = new DateTime(
       currentDateTime.year,
       currentDateTime.month,
@@ -59,7 +58,7 @@ class DateTimePickerCubit extends Cubit<DateTimePickerState> {
   } // _setTime
 
   DateTime _setDate(
-      {@required DateTime currentDateTime, @required DateTime newDate}) {
+      {required DateTime currentDateTime, required DateTime newDate}) {
     currentDateTime = new DateTime(
       newDate.year,
       newDate.month,

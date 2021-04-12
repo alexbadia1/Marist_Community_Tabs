@@ -9,9 +9,9 @@ import 'package:database_repository/database_repository.dart';
 
 class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
   final DatabaseRepository db;
-  EventModel _eventModel;
+  late EventModel _eventModel;
 
-  CreateEventBloc({@required this.db})
+  CreateEventBloc({required this.db})
       : super(CreateEventInvalid(EventModel.nullConstructor())) {
     this._eventModel = this.state.eventModel;
   } // CreateEventBloc
@@ -86,7 +86,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event title
   Stream<CreateEventState> _mapCreateEventSetTitleToState(
-      {@required CreateEventSetTitle createEventSetTitle}) async* {
+      {required CreateEventSetTitle createEventSetTitle}) async* {
     /// Empty Title, set title to empty
     if (createEventSetTitle.newTitle.trim().isEmpty) {
       this._eventModel = this._eventModel.copyWith(title: '');
@@ -103,7 +103,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event host
   Stream<CreateEventState> _mapCreateEventSetHostToState(
-      {@required CreateEventSetHost createEventSetHost}) async* {
+      {required CreateEventSetHost createEventSetHost}) async* {
     /// Empty host, set title to empty
     if (createEventSetHost.newHost.trim().isEmpty) {
       this._eventModel = this._eventModel.copyWith(host: '');
@@ -120,7 +120,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event location
   Stream<CreateEventState> _mapCreateEventSetLocationToState(
-      {@required CreateEventSetLocation createEventSetLocation}) async* {
+      {required CreateEventSetLocation createEventSetLocation}) async* {
     /// Empty location, set title to empty
     if (createEventSetLocation.newLocation.trim().isEmpty) {
       this._eventModel = this._eventModel.copyWith(location: '');
@@ -138,7 +138,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event room
   Stream<CreateEventState> _mapCreateEventSetRoomToState(
-      {@required CreateEventSetRoom createEventSetRoom}) async* {
+      {required CreateEventSetRoom createEventSetRoom}) async* {
     /// Empty room, set title to empty
     if (createEventSetRoom.newRoom.trim().isEmpty) {
       this._eventModel = this._eventModel.copyWith(room: '');
@@ -155,7 +155,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event description
   Stream<CreateEventState> _mapCreateEventSetDescriptionToState(
-      {@required CreateEventSetDescription createEventSetDescription}) async* {
+      {required CreateEventSetDescription createEventSetDescription}) async* {
     /// Empty description, set title to empty
     if (createEventSetDescription.newDescription.trim().isEmpty) {
       this._eventModel = this._eventModel.copyWith(summary: '');
@@ -173,8 +173,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event start DateTime
   Stream<CreateEventState> _mapCreateEventSetRawStartDateTimeToState(
-      {@required
-          CreateEventSetRawStartDateTime
+      {required CreateEventSetRawStartDateTime
               createEventSetRawStartDateTime}) async* {
     /// Not empty rawStartDateAndTime, so update the _event
     if (createEventSetRawStartDateTime.newRawStartDateTime != null) {
@@ -194,8 +193,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event end DateTime
   Stream<CreateEventState> _mapCreateEventSetRawEndDateTimeToState(
-      {@required
-          CreateEventSetRawEndDateTime createEventSetRawEndDateTime}) async* {
+      {required CreateEventSetRawEndDateTime createEventSetRawEndDateTime}) async* {
     // Not empty newRawEndDateTime, so update the _event
     if (createEventSetRawEndDateTime.newRawEndDateTime != null) {
       this._eventModel = this._eventModel.copyWith(
@@ -213,7 +211,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Sets the event category
   Stream<CreateEventState> _mapCreateEventSetCategoryToState(
-      {@required CreateEventSetCategory createEventSetCategory}) async* {
+      {required CreateEventSetCategory createEventSetCategory}) async* {
     // Not empty category, so update the _event
     if (createEventSetCategory.category != null) {
       this._eventModel =
@@ -230,7 +228,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Add Highlight
   Stream<CreateEventState> _mapCreateEventAddHighlightToState(
-      {@required CreateEventAddHighlight createEventAddHighlight}) async* {
+      {required CreateEventAddHighlight createEventAddHighlight}) async* {
     // Dart passes array's like objects, thus you need to "clone" the array
     // in order to ensure the array being used to create the new event model object is "new"
     List<String> _highlightList = [];
@@ -256,8 +254,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Remove Highlight
   Stream<CreateEventState> _mapCreateEventRemoveHighlightToState(
-      {@required
-          CreateEventRemoveHighlight createEventRemoveHighlight}) async* {
+      {required CreateEventRemoveHighlight createEventRemoveHighlight}) async* {
     // Dart passes array's like objects, thus you need to "clone" the array
     // in order to ensure the array being used to create the new event model object is "new"
     List<String> _highlightList = [];
@@ -283,7 +280,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Set Highlight
   Stream<CreateEventState> _mapCreateEventSetHighlightToState(
-      {@required CreateEventSetHighlight createEventSetHighlight}) async* {
+      {required CreateEventSetHighlight createEventSetHighlight}) async* {
     final List<String> _highlightList = this._eventModel.getHighlights ?? [];
 
     // Not empty highlight
@@ -298,7 +295,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Set Image
   Stream<CreateEventState> _mapCreateEventSetImageToState(
-      {@required CreateEventSetImage createEventSetImage}) async* {
+      {required CreateEventSetImage createEventSetImage}) async* {
     final Uint8List _bytes = createEventSetImage.imageBytes;
 
     // Not empty highlight
@@ -311,8 +308,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
 
   /// Set Image Fit Cover
   Stream<CreateEventState> _mapCreateEventSetImageFitCoverToState(
-      {@required
-          CreateEventSetImageFitCover createEventSetImageFitCover}) async* {
+      {required CreateEventSetImageFitCover createEventSetImageFitCover}) async* {
     this._eventModel = this
         ._eventModel
         .copyWith(imageFitCover: createEventSetImageFitCover.fitCover);
@@ -321,7 +317,7 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
   } // _mapCreateEventSetImageFitCoverToState
 
   Stream<CreateEventState> _mapCreateEventSetImagePathToState(
-      {@required CreateEventSetImagePath createEventSetImagePath}) async* {
+      {required CreateEventSetImagePath createEventSetImagePath}) async* {
     if (createEventSetImagePath.imagePath != null) {
       this._eventModel = this
           ._eventModel

@@ -12,14 +12,14 @@ class FetchFullEventInitial extends FetchFullEventState {
 
 class FetchFullEventSuccess extends FetchFullEventState {
   final EventModel eventModel;
-  DateTime end;
-  DateTime start;
-  String endSubtitle;
-  String startSubtitle;
-  String formattedEndDate;
-  String formattedStartDate;
+  DateTime? end;
+  DateTime? start;
+  String? endSubtitle;
+  String? startSubtitle;
+  String? formattedEndDate;
+  String? formattedStartDate;
 
-  FetchFullEventSuccess({@required this.eventModel}) : assert(eventModel != null) {
+  FetchFullEventSuccess({required this.eventModel}) {
     end = this.eventModel.getRawEndDateAndTime;
     start = this.eventModel.getRawStartDateAndTime;
   }
@@ -37,39 +37,39 @@ class FetchFullEventSuccess extends FetchFullEventState {
         0,
         0);
 
-    if (myCurrent.difference(this.start).inDays == 0) {
+    if (myCurrent.difference(this.start!).inDays == 0) {
       this.formattedStartDate = 'today';
-    } else if (myCurrent.difference(this.start).inDays == 1) {
+    } else if (myCurrent.difference(this.start!).inDays == 1) {
       this.formattedStartDate = 'yesterday';
-    } else if (myCurrent.difference(this.start).inDays == -1) {
+    } else if (myCurrent.difference(this.start!).inDays == -1) {
       this.formattedStartDate = 'tomorrow';
     } else {
       this.formattedStartDate = 'on ${event.getStartDate}';
     }
 
     if (this.end != null) {
-      if (myCurrent.difference(this.end).inDays == 0) {
+      if (myCurrent.difference(this.end!).inDays == 0) {
         formattedEndDate = 'today';
-      } else if (myCurrent.difference(this.end).inDays == 1) {
+      } else if (myCurrent.difference(this.end!).inDays == 1) {
         formattedEndDate = 'yesterday';
-      } else if (myCurrent.difference(this.end).inDays == -1) {
+      } else if (myCurrent.difference(this.end!).inDays == -1) {
         formattedEndDate = 'tomorrow';
       } else {
         formattedEndDate = 'on ${event.getEndDate}';
       }
     }
 
-    if (myCurrent.isBefore(this.start)) {
+    if (myCurrent.isBefore(this.start!)) {
       startSubtitle = 'Starts $formattedStartDate at ${event.getStartTime}';
       if (event.getEndDate.trim().isNotEmpty)
         endSubtitle = 'Ends $formattedEndDate at ${event.getEndTime}';
-    } else if (myCurrent.isAtSameMomentAs(start)) {
+    } else if (myCurrent.isAtSameMomentAs(start!)) {
       startSubtitle = 'Event starts now!';
       if (event.getEndDate.trim().isNotEmpty)
         endSubtitle = 'Ends at ${event.getEndTime} $formattedEndDate';
-    } else if (myCurrent.isAfter(this.start)) {
+    } else if (myCurrent.isAfter(this.start!)) {
       if (this.end != null) {
-        if (myCurrent.isBefore(this.end)) {
+        if (myCurrent.isBefore(this.end!)) {
           startSubtitle =
               'Started since ${event.getStartTime} $this.formattedStartDate';
           endSubtitle = 'Ends at ${event.getEndTime} $formattedEndDate';
@@ -86,7 +86,7 @@ class FetchFullEventSuccess extends FetchFullEventState {
   } // _formatEventDatesAndTimes
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         eventModel,
         end,
         start,

@@ -7,13 +7,13 @@ typedef UpdateBlocCallback = void Function(DateTime dateTime);
 
 class DatePicker extends StatefulWidget {
   final DateTime initialSelectedDate;
-  final UpdateBlocCallback updateBlocCallback;
+  final UpdateBlocCallback? updateBlocCallback;
   final OnDateSelectedCallback onDateSelectedCallback;
 
   const DatePicker(
-      {Key key,
-      @required this.initialSelectedDate,
-      @required this.onDateSelectedCallback,
+      {Key? key,
+      required this.initialSelectedDate,
+      required this.onDateSelectedCallback,
       this.updateBlocCallback})
       : super(key: key);
   @override

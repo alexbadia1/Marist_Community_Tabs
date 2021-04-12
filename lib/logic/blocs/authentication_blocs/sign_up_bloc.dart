@@ -2,7 +2,6 @@ import 'dart:async';
 import 'sign_up_state.dart';
 import 'sign_up_event.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:communitytabs/logic/blocs/blocs.dart';
 import 'package:communitytabs/logic/constants/enums.dart';
 import 'package:authentication_repository/authentication_repository.dart';
@@ -10,7 +9,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final AuthenticationRepository authenticationRepository;
 
-  SignUpBloc({@required this.authenticationRepository})
+  SignUpBloc({required this.authenticationRepository})
       : assert(authenticationRepository != null),
         super(SignUpStateFailed(msg: ''));
 
@@ -21,16 +20,16 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     }// if
   }// mapEventToState
 
-  Stream<SignUpState> _mapSignUpEventSignUpToState ({@required SignUpEventSignUp signUpEvent}) async* {
+  Stream<SignUpState> _mapSignUpEventSignUpToState ({required SignUpEventSignUp signUpEvent}) async* {
     // Should trigger a loading widget
     yield SignUpStateSubmitted();
 
     // Try to sign up using authentication repository
-    final UserModel user = await _mapSignUpEventSignUpToSignUpMethod(signUpEventSignUp: signUpEvent);
+    final UserModel? user = await _mapSignUpEventSignUpToSignUpMethod(signUpEventSignUp: signUpEvent);
 
     if (user != null) {
 
-      UserModel loggedInUser = await authenticationRepository.signInWithEmailAndPassword(signUpEvent.hashedEmail, signUpEvent.hashedPassword);
+      UserModel? loggedInUser = await authenticationRepository.signInWithEmailAndPassword(signUpEvent.hashedEmail, signUpEvent.hashedPassword);
 
       if (loggedInUser != null) {
         yield SignUpStateSuccessful();
@@ -46,7 +45,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     }// else
   }// _mapSignUpEventSignUpToState
 
-  Future<UserModel> _mapSignUpEventSignUpToSignUpMethod({@required SignUpEventSignUp signUpEventSignUp}) async {
+  Future<UserModel?> _mapSignUpEventSignUpToSignUpMethod({required SignUpEventSignUp signUpEventSignUp}) async {
     /// TODO: Implement more sign up methods that firebase provides
     if (signUpEventSignUp.signUpType == SignUpType.emailAndPassword) {
       return await authenticationRepository.registerWithEmailAndPassword(signUpEventSignUp.hashedEmail, signUpEventSignUp.hashedPassword);

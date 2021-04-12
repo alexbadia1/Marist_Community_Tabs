@@ -3,7 +3,6 @@ import 'package:bloc/bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'suggested_events_event.dart';
 import 'suggested_events_state.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:database_repository/database_repository.dart';
 import 'package:communitytabs/logic/constants/constants.dart';
@@ -14,7 +13,7 @@ class SuggestedEventsBloc
   final DatabaseRepository db;
   final int paginationLimit = PAGINATION_LIMIT;
 
-  SuggestedEventsBloc({@required this.db})
+  SuggestedEventsBloc({required this.db})
       : super(SuggestedEventsStateFetching());
 
   @override
@@ -150,17 +149,17 @@ class SuggestedEventsBloc
   } // _mapSuggestedEventsEventFetchToState
 
   Future<List<QueryDocumentSnapshot>> _fetchEventsWithPagination(
-      {@required QueryDocumentSnapshot lastEvent, @required int limit}) async {
+      {required QueryDocumentSnapshot? lastEvent, required int limit}) async {
     return db.getEventsWithPaginationFromSearchEventsCollection(
         category: 'Academic', lastEvent: lastEvent, limit: limit);
   } // _fetchEventsWithPagination
 
   List<SearchResultModel> _mapDocumentSnapshotsToEventModels(
-      {@required List<QueryDocumentSnapshot> docs}) {
+      {required List<QueryDocumentSnapshot> docs}) {
     return docs.map((doc) {
-      DateTime tempRawStartDateAndTimeToDateTime;
+      DateTime? tempRawStartDateAndTimeToDateTime;
 
-      Timestamp _startTimestamp = doc.data()['rawStartDateAndTime'];
+      Timestamp? _startTimestamp = doc.data()['rawStartDateAndTime'];
 
       if (_startTimestamp != null) {
         tempRawStartDateAndTimeToDateTime = DateTime.fromMillisecondsSinceEpoch(

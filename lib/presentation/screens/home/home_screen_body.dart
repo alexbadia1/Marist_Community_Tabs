@@ -13,8 +13,8 @@ class HomeScreenBody extends StatefulWidget {
 } // HomeScreenBody
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
-  Completer<void> _refreshCompleter;
-  ScrollController _sliverController;
+  late Completer<void> _refreshCompleter;
+  late ScrollController _sliverController;
   GlobalKey navigation = new GlobalKey();
 
   @override

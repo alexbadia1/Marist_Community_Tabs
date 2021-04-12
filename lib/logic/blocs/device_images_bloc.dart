@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:communitytabs/logic/logic.dart';
 import 'device_images_event.dart';
 import 'device_images_state.dart';
@@ -41,7 +40,7 @@ class DeviceImagesBloc extends Bloc<DeviceImagesEvent, DeviceImagesState> {
           final List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(onlyAll: true, type: RequestType.image);
 
           // Get photos
-          final List<AssetEntity> photos = await albums[0]?.getAssetListPaged(0, this.paginationLimit);
+          final List<AssetEntity> photos = await albums[0].getAssetListPaged(0, this.paginationLimit);
 
           // Map photos to file data type
           List<File> tempFiles = await _mapPhotosToFiles(photos: photos);
@@ -63,7 +62,7 @@ class DeviceImagesBloc extends Bloc<DeviceImagesEvent, DeviceImagesState> {
           final List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(onlyAll: true, type: RequestType.image);
 
           // Get photos
-          final List<AssetEntity> photos = await albums[0]?.getAssetListPaged(_currentState.lastPage + 1, paginationLimit);
+          final List<AssetEntity> photos = await albums[0].getAssetListPaged(_currentState.lastPage + 1, paginationLimit);
 
           // Map photos to file data type
           List<File> tempFiles = await _mapPhotosToFiles(photos: photos);
@@ -108,10 +107,10 @@ class DeviceImagesBloc extends Bloc<DeviceImagesEvent, DeviceImagesState> {
     }// catch
   }// _mapDeviceImagesEventFetchToDeviceImagesState
 
-  Future<List<File>> _mapPhotosToFiles({@required List<AssetEntity> photos}) async {
+  Future<List<File>> _mapPhotosToFiles({required List<AssetEntity> photos}) async {
     List<File> ans = [];
     for (int i = 0; i < photos.length; ++i) {
-      ans.add(await photos[i].originFile);
+      ans.add((await photos[i].originFile)!);
     }// for
 
     return ans;

@@ -10,8 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'event.dart';
 
 class EventScreen extends StatelessWidget {
-  final String eventId;
-  final Uint8List imageBytes;
+  final String? eventId;
+  final Uint8List? imageBytes;
   EventScreen({this.eventId, this.imageBytes});
 
   @override

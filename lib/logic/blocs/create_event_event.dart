@@ -9,7 +9,7 @@ abstract class CreateEventEvent extends Equatable{}// CreateEventEvent
 class CreateEventSetTitle extends CreateEventEvent {
   final String newTitle;
 
-  CreateEventSetTitle({@required this.newTitle});
+  CreateEventSetTitle({required this.newTitle});
 
   @override
   List<Object> get props => [newTitle];
@@ -18,7 +18,7 @@ class CreateEventSetTitle extends CreateEventEvent {
 class CreateEventSetHost extends CreateEventEvent {
   final String newHost;
 
-  CreateEventSetHost({@required this.newHost});
+  CreateEventSetHost({required this.newHost});
 
   @override
   List<Object> get props => [newHost];
@@ -27,7 +27,7 @@ class CreateEventSetHost extends CreateEventEvent {
 class CreateEventSetLocation extends CreateEventEvent {
   final String newLocation;
 
-  CreateEventSetLocation({@required this.newLocation});
+  CreateEventSetLocation({required this.newLocation});
 
   @override
   List<Object> get props => [newLocation];
@@ -36,7 +36,7 @@ class CreateEventSetLocation extends CreateEventEvent {
 class CreateEventSetRoom extends CreateEventEvent {
   final String newRoom;
 
-  CreateEventSetRoom({@required this.newRoom});
+  CreateEventSetRoom({required this.newRoom});
 
   @override
   List<Object> get props => [newRoom];
@@ -45,7 +45,7 @@ class CreateEventSetRoom extends CreateEventEvent {
 class CreateEventSetDescription extends CreateEventEvent {
   final String newDescription;
 
-  CreateEventSetDescription({@required this.newDescription});
+  CreateEventSetDescription({required this.newDescription});
 
   @override
   List<Object> get props => [newDescription];
@@ -54,7 +54,7 @@ class CreateEventSetDescription extends CreateEventEvent {
 class CreateEventSetRawStartDateTime extends CreateEventEvent {
   final DateTime newRawStartDateTime;
 
-  CreateEventSetRawStartDateTime({@required this.newRawStartDateTime});
+  CreateEventSetRawStartDateTime({required this.newRawStartDateTime});
 
   @override
   List<Object> get props => [newRawStartDateTime];
@@ -63,7 +63,7 @@ class CreateEventSetRawStartDateTime extends CreateEventEvent {
 class CreateEventSetRawEndDateTime extends CreateEventEvent {
   final DateTime newRawEndDateTime;
 
-  CreateEventSetRawEndDateTime({@required this.newRawEndDateTime});
+  CreateEventSetRawEndDateTime({required this.newRawEndDateTime});
 
   @override
   List<Object> get props => [newRawEndDateTime];
@@ -72,7 +72,7 @@ class CreateEventSetRawEndDateTime extends CreateEventEvent {
 class CreateEventSetCategory extends CreateEventEvent {
   final String category;
 
-  CreateEventSetCategory({@required this.category});
+  CreateEventSetCategory({required this.category});
 
   @override
   List<Object> get props => [category];
@@ -81,7 +81,7 @@ class CreateEventSetCategory extends CreateEventEvent {
 class CreateEventAddHighlight extends CreateEventEvent {
   final String highlight;
 
-  CreateEventAddHighlight({@required this.highlight});
+  CreateEventAddHighlight({required this.highlight});
 
   @override
   List<Object> get props => [highlight];
@@ -90,7 +90,7 @@ class CreateEventAddHighlight extends CreateEventEvent {
 class CreateEventRemoveHighlight extends CreateEventEvent {
   final int index;
 
-  CreateEventRemoveHighlight({@required this.index});
+  CreateEventRemoveHighlight({required this.index});
 
   @override
   List<Object> get props => [index];
@@ -100,7 +100,7 @@ class CreateEventSetHighlight extends CreateEventEvent {
   final int index;
   final String highlight;
 
-  CreateEventSetHighlight({@required this.index, @required this.highlight});
+  CreateEventSetHighlight({required this.index, required this.highlight});
 
   @override
   List<Object> get props => [index];
@@ -109,7 +109,7 @@ class CreateEventSetHighlight extends CreateEventEvent {
 class CreateEventSetImage extends CreateEventEvent {
   final Uint8List imageBytes;
 
-  CreateEventSetImage({@required this.imageBytes});
+  CreateEventSetImage({required this.imageBytes});
 
   @override
   List<Object> get props => [imageBytes];
@@ -117,7 +117,7 @@ class CreateEventSetImage extends CreateEventEvent {
 
 class CreateEventSetImageFitCover extends CreateEventEvent {
   final bool fitCover;
-  CreateEventSetImageFitCover({@required this.fitCover});
+  CreateEventSetImageFitCover({required this.fitCover});
 
   @override
   List<Object> get props => [fitCover];
@@ -125,7 +125,7 @@ class CreateEventSetImageFitCover extends CreateEventEvent {
 
 class CreateEventSetImagePath extends CreateEventEvent {
   final String imagePath;
-  CreateEventSetImagePath({@required this.imagePath});
+  CreateEventSetImagePath({required this.imagePath});
 
   @override
   List<Object> get props => [imagePath];

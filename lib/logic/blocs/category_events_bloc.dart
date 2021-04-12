@@ -3,7 +3,6 @@ import 'package:bloc/bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'category_events_event.dart';
 import 'category_events_state.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:communitytabs/logic/blocs/blocs.dart';
 import 'package:communitytabs/logic/constants/constants.dart';
@@ -14,7 +13,7 @@ class CategoryEventsBloc extends Bloc<CategoryEventsEvent, CategoryEventsState> 
   final String category;
   final int paginationLimit = PAGINATION_LIMIT;
 
-  CategoryEventsBloc({@required this.db, @required this.category}) : assert(db != null), assert(category != null), super(CategoryEventsStateFetching());
+  CategoryEventsBloc({required this.db, required this.category}) : super(CategoryEventsStateFetching());
 
   @override
   Stream<CategoryEventsState> mapEventToState(CategoryEventsEvent categoryEventsEvent) async* {
@@ -140,13 +139,13 @@ class CategoryEventsBloc extends Bloc<CategoryEventsEvent, CategoryEventsState> 
 
 
   Future<List<QueryDocumentSnapshot>> _fetchEventsWithPagination(
-      {@required QueryDocumentSnapshot lastEvent, @required int limit}) async {
+      {required QueryDocumentSnapshot? lastEvent, required int limit}) async {
     return db.getEventsWithPaginationFromSearchEventsCollection(
         category: category, lastEvent: lastEvent, limit: limit);
   } // _fetchEventsWithPagination
 
   List<SearchResultModel> _mapDocumentSnapshotsToEventModels(
-      {@required List<QueryDocumentSnapshot> docs}) {
+      {required List<QueryDocumentSnapshot> docs}) {
     return docs.map((doc) {
       return SearchResultModel(
           /// DocumentId converted to [STRING] from [STRING] in firebase.

@@ -15,8 +15,8 @@ abstract class DateTimePickerState extends Equatable {
 
 class DateTimePickerClosed extends DateTimePickerState {
   DateTimePickerClosed(
-      {@required bool isOpen,
-      @required DateTime tempDateTime})
+      {required bool isOpen,
+      required DateTime tempDateTime})
       : super(isOpen, tempDateTime);
 
   @override
@@ -25,8 +25,8 @@ class DateTimePickerClosed extends DateTimePickerState {
 
 class DateTimePickerOpenShowDatePicker extends DateTimePickerState {
   DateTimePickerOpenShowDatePicker(
-      {@required bool isOpen,
-      @required DateTime tempDateTime})
+      {required bool isOpen,
+      required DateTime tempDateTime})
       : super(isOpen, tempDateTime);
 
   @override
@@ -35,8 +35,8 @@ class DateTimePickerOpenShowDatePicker extends DateTimePickerState {
 
 class DateTimePickerOpenShowTimePicker extends DateTimePickerState {
   DateTimePickerOpenShowTimePicker(
-      {@required bool isOpen,
-      @required DateTime tempDateTime})
+      {required bool isOpen,
+      required DateTime tempDateTime})
       : super(isOpen, tempDateTime);
 
   @override

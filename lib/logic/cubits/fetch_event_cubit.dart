@@ -7,7 +7,7 @@ import 'package:database_repository/database_repository.dart';
 class FetchFullEventCubit extends Cubit<FetchFullEventState> {
   final DatabaseRepository db;
 
-  FetchFullEventCubit({@required this.db}) : super(FetchFullEventInitial());
+  FetchFullEventCubit({required this.db}) : super(FetchFullEventInitial());
 
   void fetchEvent({@required documentId}) async {
     DocumentSnapshot _documentSnapshot;
@@ -34,15 +34,15 @@ class FetchFullEventCubit extends Cubit<FetchFullEventState> {
   } // fetchEvent
 
   EventModel _mapQueryDocumentSnapshotToEventModel(
-      {@required DocumentSnapshot documentSnapshot}) {
+      {required DocumentSnapshot documentSnapshot}) {
 
     // print('Firebase data: ${documentSnapshot.data()}');
 
     Timestamp _startTimestamp = documentSnapshot.data()['rawStartDateAndTime'];
     Timestamp _endTimestamp = documentSnapshot.data()['rawEndDateAndTime'];
 
-    DateTime tempRawStartDateAndTimeToDateTime;
-    DateTime tempRawEndDateAndTimeToDateTime;
+    DateTime? tempRawStartDateAndTimeToDateTime;
+    DateTime? tempRawEndDateAndTimeToDateTime;
 
     if (_startTimestamp != null) {
       tempRawStartDateAndTimeToDateTime = DateTime.fromMillisecondsSinceEpoch(
